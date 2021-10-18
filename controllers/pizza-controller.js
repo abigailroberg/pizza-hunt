@@ -1,7 +1,7 @@
-const Pizza = require('../models')
+const { Pizza } = require('../models')
 
 const pizzaController = {
-    // get all pizzas
+    // get all pizzas method
     getAllPizza(req, res) {
         Pizza.find({})
         .then(dbPizzaData => res.json(dbPizzaData))
@@ -28,12 +28,12 @@ const pizzaController = {
         })
     },
 
-    // create pizza
+    // createPizza
     createPizza({ body }, res) {
         Pizza.create(body)
         .then(dbPizzaData => res.json(dbPizzaData))
         .catch(err => res.status(400).json(err))
-    },
+  },
 
     // update pizza by id
     updatePizza({ params, body }, res) {
